@@ -53,6 +53,19 @@ main {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  flex-wrap: wrap;
+  padding: 14% 20%;
+  gap: 0 10px;
+}
+
+
+.dot {
+  border-radius: 50%;
+  max-width: 10px;
+  width: 10px;
+  max-height: 10px;
+  height: 10px;
+  background-color: #0B2434;
 }
 
 .die-num {

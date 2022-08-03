@@ -1,14 +1,24 @@
 export default function Die(props) {
   const styles = {
-      backgroundColor: props.isHeld ? "#59E391" : "white"
+    backgroundColor: props.isHeld ? "#59E391" : "white"
   }
+
+  let dots = []
+
+  for (let i = 0; i < props.value; i++) {
+    // dots += <div className="dot" key={i}>.</div>
+    dots.push(
+      <div className="dot" key={i}></div>
+    )
+  }
+
   return (
-      <div 
-          className="die-face" 
-          style={styles}
-          onClick={props.holdDice}
-      >
-          <h2 className="die-num">{props.value}</h2>
-      </div>
+    <div
+      className="die-face"
+      style={styles}
+      onClick={props.holdDice}
+    >
+      {dots}
+    </div>
   )
 }
