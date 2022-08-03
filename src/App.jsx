@@ -1,24 +1,29 @@
+import { useState } from 'react'
 import Die from './Die'
 import './index.css'
 
 function App() {
 
-  return (
-    <main>
-      <div className="dice-container">
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
-        <Die value="5" />
-        <Die value="6" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-      </div>
-    </main>
-  )
+  const [dice, setDice] = useState(allNewDice())
+    
+    function allNewDice() {
+        const newDice = []
+        for (let i = 0; i < 10; i++) {
+            newDice.push(Math.ceil(Math.random() * 6))
+        }
+        return newDice
+    }
+    
+    const diceElements = dice.map(die => (
+        <Die value={die} key={Math.random()} />
+    ))
+    return (
+        <main>
+            <div className="dice-container">
+                {diceElements}
+            </div>
+        </main>
+    )
 }
 
 export default App
